@@ -110,6 +110,9 @@ if (BUILD_C_BINDINGS)
         if(MINGW AND OPENMP_FOUND)
           target_link_libraries(flann gomp)
         endif()
+        if(OpenMP_CXX_FOUND)
+          target_link_libraries(flann PUBLIC OpenMP::OpenMP_CXX)
+        endif()
     endif()
 
     set_target_properties(flann PROPERTIES
